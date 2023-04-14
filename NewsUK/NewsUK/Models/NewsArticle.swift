@@ -10,7 +10,7 @@ import Foundation
 struct NewsArticle: Decodable {
 	let title: String
 	let author: String
-	let publishedAt: Date
+	let publishedAt: String
 	let source: NewsSource
 	let url: String
 	let urlToImage: String?

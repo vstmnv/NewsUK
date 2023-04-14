@@ -24,6 +24,7 @@
 		AEDF13F929E9716B00506CE1 /* NewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF13F829E9716B00506CE1 /* NewsResponse.swift */; };
 		AEDF13FB29E9721900506CE1 /* NewsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF13FA29E9721900506CE1 /* NewsSource.swift */; };
 		AEDF13FD29E973D800506CE1 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF13FC29E973D800506CE1 /* APIRequest.swift */; };
+		AEDF140029E97FBF00506CE1 /* String+FormattedDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF13FF29E97FBF00506CE1 /* String+FormattedDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		AEDF13F829E9716B00506CE1 /* NewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsResponse.swift; sourceTree = "<group>"; };
 		AEDF13FA29E9721900506CE1 /* NewsSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSource.swift; sourceTree = "<group>"; };
 		AEDF13FC29E973D800506CE1 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		AEDF13FF29E97FBF00506CE1 /* String+FormattedDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+FormattedDate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				AEDF13F129E9694900506CE1 /* AppConstants.swift */,
 				AEDF13DE29E964C700506CE1 /* Config.xcconfig */,
 				AEDF13D829E9630900506CE1 /* Info.plist */,
+				AEDF13FE29E97FA800506CE1 /* Extensions */,
 				AEDF13F529E970DE00506CE1 /* Models */,
 				AEDF13EE29E9661500506CE1 /* API */,
 				AEDF13E129E9652200506CE1 /* Screens */,
@@ -138,6 +141,14 @@
 				AEDF13FA29E9721900506CE1 /* NewsSource.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		AEDF13FE29E97FA800506CE1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AEDF13FF29E97FBF00506CE1 /* String+FormattedDate.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEDF140029E97FBF00506CE1 /* String+FormattedDate.swift in Sources */,
 				AEDF13E529E9659300506CE1 /* NewsListViewController.swift in Sources */,
 				AEDF13EB29E965BD00506CE1 /* NewsListCell.swift in Sources */,
 				AEDF13FD29E973D800506CE1 /* APIRequest.swift in Sources */,
@@ -358,6 +370,7 @@
 		};
 		AEDF13DC29E9630900506CE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEDF13DE29E964C700506CE1 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -368,10 +381,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewsUK/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = NewsList;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -379,14 +391,18 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vessy.NewsUK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		AEDF13DD29E9630900506CE1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEDF13DE29E964C700506CE1 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -397,10 +413,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewsUK/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = NewsList;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -408,9 +423,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vessy.NewsUK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
