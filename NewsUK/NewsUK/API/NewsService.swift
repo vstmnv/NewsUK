@@ -15,4 +15,10 @@ final class NewsService {
 
 		apiManager.run(request: apiRequest, completion: completion)
 	}
+
+	func getImage(url: URL, completion: @escaping (Data?, Error?) -> Void) {
+		let apiManager = APIManager()
+
+		apiManager.run(request: URLRequest(url: url), completion: completion)
+	}
 }

@@ -12,6 +12,7 @@ final class NewsListViewController: UIViewController {
 
 	private enum Constant {
 		static let newsCell = "newsListCell"
+		static let detailsSegue = "showDetails"
 	}
 
 	private let viewModel = NewsListViewModel()
@@ -26,6 +27,18 @@ final class NewsListViewController: UIViewController {
 		configureBindings()
 		configureTableView()
 		viewModel.fetchArticles()
+	}
+
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		switch segue.identifier {
+		case Constant.detailsSegue:
+			if let detailsViewController = segue.destination as? NewsDetailsViewController,
+			   let article = sender as? NewsArticle {
+				detailsViewController.configure(viewModel: NewsDetailsViewModel(article: article))
+			}
+		default:
+			break
+		}
 	}
 
 	// MARK: - Private
@@ -66,5 +79,7 @@ extension NewsListViewController: UITableViewDataSource {
 }
 
 extension NewsListViewController: UITableViewDelegate {
-
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		performSegue(withIdentifier: Constant.detailsSegue, sender: viewModel.articles[indexPath.row])
+	}
 }
