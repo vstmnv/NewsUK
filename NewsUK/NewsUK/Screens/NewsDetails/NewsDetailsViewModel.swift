@@ -16,6 +16,7 @@ final class NewsDetailsViewModel {
 	private let article: NewsArticle
 
 	let title: String
+	let articleURL: URL?
 	let defaultImageName: String
 	@Published private(set) var imageData: Data?
 
@@ -23,7 +24,9 @@ final class NewsDetailsViewModel {
 		self.article = article
 
 		title = article.title
+		articleURL = URL(string: article.url)
 		defaultImageName = Constant.defaultImage
+
 		fetchArticleImage()
 	}
 

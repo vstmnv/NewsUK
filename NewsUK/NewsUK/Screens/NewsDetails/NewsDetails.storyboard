@@ -60,11 +60,22 @@
                     <connections>
                         <outlet property="articleImageView" destination="BZu-Ms-0Dm" id="yeJ-cz-aJc"/>
                         <outlet property="titleLabel" destination="kTW-ww-XGU" id="H04-yw-a41"/>
+                        <segue destination="LxD-c8-xjX" kind="show" identifier="showWebView" id="qiI-Gj-Av6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="66" y="-2"/>
+        </scene>
+        <!--NewsWebView-->
+        <scene sceneID="yYB-Ec-ERt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewsWebView" id="LxD-c8-xjX" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="7xY-AI-IY3"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XGB-x8-ckK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="651" y="-2"/>
         </scene>
     </scenes>
     <resources>

@@ -10,6 +10,10 @@ import Combine
 
 final class NewsDetailsViewController: UIViewController {
 
+	private enum Constant {
+		static let webViewSegue = "showWebView"
+	}
+
 	private var viewModel: NewsDetailsViewModel?
 	private var cancellables: [AnyCancellable] = []
 
@@ -21,6 +25,18 @@ final class NewsDetailsViewController: UIViewController {
 
 		configureBindings()
 		configureDetails()
+	}
+
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		switch segue.identifier {
+		case Constant.webViewSegue:
+			if let webViewController = segue.destination as? NewsWebViewController,
+			   let articleUrl = sender as? URL {
+				webViewController.configure(url: articleUrl)
+			}
+		default:
+			break
+		}
 	}
 
 	// MARK: - Public
@@ -58,6 +74,6 @@ final class NewsDetailsViewController: UIViewController {
 	// MARK: - IBAction
 
 	@IBAction private func openArticle(_ sender: UIButton) {
-
+		performSegue(withIdentifier: Constant.webViewSegue, sender: viewModel?.articleURL)
 	}
 }
