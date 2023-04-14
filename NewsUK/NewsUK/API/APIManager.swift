@@ -28,9 +28,8 @@ final class APIManager {
 	private var dataTask: URLSessionDataTask?
 
 	func run<O: Decodable>(
-		path: String,
+		request: APIRequest<O>,
 		httpMethod: HTTPMethod = .get,
-		queryItems: [URLQueryItem] = [],
 		completion: @escaping (Result<O, Error>) -> Void
 	) {
 		guard let baseURL = API.baseURL,
@@ -40,7 +39,7 @@ final class APIManager {
 			return
 		}
 
-		let urlWithPathAndQuery = url.appending(path: path).appending(queryItems: queryItems)
+		let urlWithPathAndQuery = url.appending(path: request.path).appending(queryItems: request.queryItems)
 		var request = URLRequest(url: urlWithPathAndQuery)
 		request.httpMethod = httpMethod.value
 		request.setValue(apiKey, forHTTPHeaderField: Constant.authorizationHeader)
