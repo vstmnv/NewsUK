@@ -24,7 +24,7 @@ final class NewsListCellViewModel {
 		self.article = article
 
 		title = article.title
-		author = article.author
+		author = article.author ?? Constant.empty
 		source = article.source.name
 		publishedAt = article.publishedAt.formattedDate ?? Constant.empty
 	}
